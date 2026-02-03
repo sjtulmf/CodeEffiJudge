@@ -49,7 +49,7 @@ Each sample contains a pair of functionally equivalent code snippets with differ
 | File | Description |
 |------|-------------|
 | `extract.py` | **Dataset Sampler**: Extract balanced code pairs from PIE dataset with deduplication and stratified sampling across difficulty levels |
-| `code_sanitizer.py` | **Code Sanitizer**: Semantic-level variable renaming and comment removal using LibCST (Python), Clang (C++), OpenRewrite (Java) |
+| `code_sanitizer.py` | **Code Sanitizer**: Semantic-level variable renaming and comment removal using LibCST (Python), Clang (C++), Google-Java-Format (Java) |
 | `unify_dataset_schema.py` | **Schema Unifier**: Convert various input formats (PIE, sampled, Java benchmark) to unified schema |
 | `coffe_benchmark.py` | **Python Benchmark**: CPU instruction counting using cirron (perf_event), process isolation, multi-sampling |
 | `java_process_benchmark.py` | **Java Benchmark**: Process-level timing with System.nanoTime(), JVM warmup, CPU pinning via taskset |
