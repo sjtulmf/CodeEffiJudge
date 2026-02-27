@@ -1,24 +1,4 @@
 #!/usr/bin/env python3
-"""
-Java 进程级基准测试器 V2
-
-适配原始数据集格式（problem_id, solutions[], testcases[]），
-类似 java_benchmark.py 的处理流程，但使用简单的进程级测量替代 JMH。
-
-与 coffe_benchmark.py 的对齐：
-    - 进程隔离：每次测量都是独立 JVM 进程
-    - 多次采样：多次运行取平均值，去除异常值
-    - 内部计时：使用 System.nanoTime() 在 Java 代码内部精确计时
-    - CPU 绑定：通过 taskset 绑定 CPU 核心减少调度噪声
-    - 预热：执行正式测量前先预热 JVM
-
-使用方法:
-    python java_process_benchmark_v2.py -i problems.jsonl -o results.jsonl --cpu-core 0
-    
-    # 多 worker 并行模式
-    python java_process_benchmark_v2.py -i problems.jsonl -o results.jsonl --workers 4 --cpu-start 0
-"""
-
 import json
 import os
 import sys
