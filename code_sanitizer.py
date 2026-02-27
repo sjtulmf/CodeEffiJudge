@@ -1,41 +1,6 @@
 #!/usr/bin/env python3
 """
-代码清洗模块 v2.1 (Code Sanitizer)
-
-新增功能 (相比 v2.0):
-    - C++ 语法验证 (g++ -fsyntax-only)
-    - Java 语法验证 (javac)
-    - 功能等价性验证框架 (运行测试用例比较输出)
-    - 完整的验证报告生成
-
-修复内容 (相比 v1.0):
-    - Python 注释移除改用 tokenize 模块，避免误删字符串内的 #
-    - 改进 docstring 检测逻辑
-    - 增加更多边界情况处理
-
-设计目标：
-    防止模型通过记忆特定变量名或注释来"作弊"（Data Contamination）
-
-处理策略：
-    Python:
-        1. 使用 tokenize 安全移除注释和文档字符串
-        2. 使用 Black 统一代码风格
-        3. 使用 ast.parse() 验证语法
-    
-    C++:
-        1. 使用状态机移除注释（正确处理字符串内的 // 和 /*）
-        2. 使用 ClangFormat 统一代码风格
-        3. 使用 g++ -fsyntax-only 验证语法
-    
-    Java:
-        1. 使用状态机移除注释和 Javadoc
-        2. 使用 google-java-format 统一代码风格
-        3. 使用 javac 验证语法
-
-接口：
-    sanitize_code(code, language, skip_format, validate) -> SanitizeResult
-    verify_functional_equivalence(original, cleaned, language, test_cases) -> EquivalenceResult
-
+代码清洗模块 (Code Sanitizer)
 依赖安装：
     pip install black
     apt install g++ clang-format default-jdk
