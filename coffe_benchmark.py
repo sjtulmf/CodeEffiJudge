@@ -1,18 +1,4 @@
 #!/usr/bin/env python3
-"""
-Mercury/Coffe Python CPU指令数基准测试 
-- 与 Coffe 作者保持一致的测量方法
-- 每次测量在独立子进程中执行（关键差异）
-- 支持两种代码类型：io（stdin/stdout）和函数调用
-- 使用 time_limit 进行超时保护
-- 两阶段测量：先验证，后测量
-- V6 改进：
-  - 修复 CPU affinity 继承问题，在 Measurement 进程中显式设置
-  - 支持多数据集合并输出到同一文件
-  - 添加数据集标签字段
-  - 优化日志输出
-"""
-
 import json
 import os
 import sys
